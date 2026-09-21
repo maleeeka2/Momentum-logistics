@@ -78,3 +78,6 @@ Review of the Momentum Logistics web application with focus on functional qualit
 - Accessibility audit identified actionable violations.
 - Lighthouse HTML report generated.
 - GitHub Actions CI configured.
+## API Testing Assessment
+
+No application API endpoints, backend implementation, Postman/Bruno collection, or OpenAPI/Swagger specification were identified in the reviewed repository. API tests were therefore not fabricated. API testing should be added when an actual backend/API contract is available.
