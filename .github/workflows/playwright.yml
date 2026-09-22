@@ -7,7 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  functional-tests:
+    name: Functional Playwright Tests
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
@@ -27,13 +28,46 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: npx playwright test --workers=1 --timeout=10000
+      - name: Run functional tests
+        run: npx playwright test --grep-invert "Accessibility Audit" --workers=1 --timeout=10000
 
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: playwright-functional-report
+          path: playwright-report/
+          retention-days: 14
+
+  accessibility-audit:
+    name: Accessibility Audit
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility audit
+        run: npx playwright test tests/accessibility.spec.ts --workers=1 --timeout=10000
+
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-accessibility-report
           path: playwright-report/
           retention-days: 14
