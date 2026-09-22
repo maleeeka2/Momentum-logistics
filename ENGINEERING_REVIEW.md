@@ -81,3 +81,12 @@ Review of the Momentum Logistics web application with focus on functional qualit
 ## API Testing Assessment
 
 No application API endpoints, backend implementation, Postman/Bruno collection, or OpenAPI/Swagger specification were identified in the reviewed repository. API tests were therefore not fabricated. API testing should be added when an actual backend/API contract is available.
+
+### F-041 — RRR submission does not create a Job
+- **Severity:** High
+- **Status:** Confirmed
+- **Evidence:** Automated Playwright test 	ests/hr-new-job-workflow.spec.ts passes while confirming that a newly submitted RRR does not appear in the Jobs module.
+- **Impact:** HR cannot complete the expected New Job workflow from an RRR; submitted requests are not persisted/converted into Jobs.
+- **Root cause:** RRR submission uses client-side toast/navigation behavior and there is no backend/database persistence or Job creation flow.
+- **Recommendation:** Implement persistent RRR storage and an explicit RRR-to-Job creation workflow backed by the application API/database, then add an end-to-end test asserting the created Job persists after page reload.
+
