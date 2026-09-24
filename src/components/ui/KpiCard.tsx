@@ -45,7 +45,7 @@ export function KpiCard({ label, value, format, delta, trend, trendGood = 'up', 
               {Math.abs(delta)}%
             </span>
           )}
-          {period && <span className="text-slate-400">{period}</span>}
+          {period && <span className="text-slate-600">{period}</span>}
         </div>
       )}
     </motion.div>
@@ -70,3 +70,4 @@ function accentText(accent: string) {
   };
   return map[accent] ?? map.brand;
 }
+

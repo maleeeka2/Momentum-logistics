@@ -16,7 +16,7 @@ Ensure the Momentum Logistics application is reliable, functional, accessible, a
 - Tool: axe-core with Playwright
 - Standard: WCAG 2A / 2AA
 - Scope: application homepage
-- Result: accessibility violations detected
+- Result: accessibility audit passed after remediation
 - Findings include critical button naming issues and serious color-contrast issues.
 
 ### Performance
@@ -45,7 +45,7 @@ GitHub Actions automatically runs the Playwright test suite on pushes and pull r
 
 ## 5. Known Risks
 - Accessibility violations require remediation.
-- No backend/API test suite was added because the reviewed repository does not expose a separate backend/API implementation.
+- API testing: Newman automated suite added with 4 requests and 5 assertions; 0 failures. Evidence: api-test-results.json
 - Security testing with OWASP ZAP was not executed because Docker and Java were unavailable in the test environment.
 
 ## 6. Evidence
@@ -55,3 +55,6 @@ GitHub Actions automatically runs the Playwright test suite on pushes and pull r
 - performance/accessibility-results.md
 - performance/lighthouse-report.html
 - .github/workflows/playwright.yml
+
+
+

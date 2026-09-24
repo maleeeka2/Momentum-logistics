@@ -47,11 +47,11 @@ export function Header() {
     <header className="flex h-16 shrink-0 items-center gap-4 border-b border-slate-200 bg-white px-6">
       <button
         onClick={() => setSearchOpen(true)}
-        className="flex h-9 w-full max-w-sm items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 text-slate-400 transition-colors hover:border-slate-300 hover:bg-white"
+        className="flex h-9 w-full max-w-sm items-center gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-slate-300 hover:bg-white"
       >
         <Search size={15} />
         <span className="text-[13px]">Search RRR, jobs, trips, vehicles...</span>
-        <kbd className="ml-auto rounded border border-slate-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-slate-400">Ctrl K</kbd>
+        <kbd className="ml-auto rounded border border-slate-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-slate-600">Ctrl K</kbd>
       </button>
 
       <div className="ml-auto flex items-center gap-2">
@@ -86,7 +86,7 @@ export function Header() {
 
         <div className="relative">
           <button
-            onClick={() => setNotifOpen((o) => !o)}
+            aria-label="Notifications" onClick={() => setNotifOpen((o) => !o)}
             className="relative flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100"
           >
             <Bell size={17} />
@@ -117,7 +117,7 @@ export function Header() {
             <Avatar name="Hassan Al Zaabi" color="#0b475b" size="sm" />
             <div className="hidden text-left leading-tight xl:block">
               <p className="text-[12.5px] font-semibold text-brand-950">Hassan Al Zaabi</p>
-              <p className="text-[11px] text-slate-400">Operations Director</p>
+              <p className="text-[11px] text-slate-600">Operations Director</p>
             </div>
             <ChevronDown size={13} className="text-slate-400" />
           </button>
@@ -170,3 +170,6 @@ function Menu({ open, onClose, children, width = 'w-56' }: { open: boolean; onCl
     </AnimatePresence>
   );
 }
+
+
+

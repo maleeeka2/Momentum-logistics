@@ -88,7 +88,7 @@ export function Dashboard() {
                 <button
                   key={r}
                   onClick={() => setRange(r)}
-                  className={cn('rounded-md px-2.5 py-1 text-xs font-medium transition-colors', range === r ? 'bg-white text-brand-800 shadow-xs' : 'text-slate-500 hover:text-slate-700')}
+                  className={cn('rounded-md px-2.5 py-1 text-xs font-medium transition-colors', range === r ? 'bg-white text-brand-800 shadow-xs' : 'text-slate-600 hover:text-slate-700')}
                 >
                   {r}
                 </button>
@@ -278,3 +278,4 @@ export function Dashboard() {
     </div>
   );
 }
+

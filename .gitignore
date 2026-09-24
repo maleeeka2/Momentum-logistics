@@ -27,3 +27,7 @@ dist-ssr
 *.sln
 *.sw?
 .env*
+
+# Test reports
+playwright-report/
+test-results/
